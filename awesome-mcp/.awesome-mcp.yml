@@ -1,0 +1,64 @@
+# Awesome MCP Configuration
+# This file contains configuration for the Awesome MCP project
+
+project:
+  name: "Awesome MCP"
+  description: "A curated list of awesome MCP (Model Context Protocol) projects, tools, and resources"
+  version: "1.0.0"
+  license: "MIT"
+  maintainer: "MCP Community"
+
+categories:
+  - name: "Official Resources"
+    file: "categories/official-resources.md"
+    description: "Official MCP resources and documentation"
+    priority: 1
+    
+  - name: "Community Projects"
+    file: "categories/community-projects.md"
+    description: "Community-created MCP projects and tools"
+    priority: 2
+    
+  - name: "Tools & Utilities"
+    file: "categories/tools-utilities.md"
+    description: "Development tools and utilities for MCP"
+    priority: 3
+    
+  - name: "Examples & Tutorials"
+    file: "categories/examples-tutorials.md"
+    description: "Example projects and educational resources"
+    priority: 4
+
+formatting:
+  resource_format: "- [Resource Name](https://link-to-resource) - Brief description"
+  max_description_length: 100
+  alphabetical_order: true
+  
+quality_standards:
+  min_stars: 5
+  min_commits: 10
+  active_maintenance: true
+  documentation_required: true
+  
+automation:
+  link_validation: true
+  duplicate_detection: true
+  format_checking: true
+  alphabetical_sorting: true
+
+contribution:
+  auto_assign_reviewers: true
+  require_tests: false
+  require_documentation: true
+  template_required: true
+  
+community:
+  discord: "https://discord.gg/mcp"
+  github: "https://github.com/modelcontextprotocol"
+  website: "https://modelcontextprotocol.io"
+  
+metrics:
+  track_views: true
+  track_clicks: true
+  track_contributions: true
+  generate_reports: true
