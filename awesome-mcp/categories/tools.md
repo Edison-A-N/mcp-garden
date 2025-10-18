@@ -2,4 +2,8 @@
 
 Useful tools and utilities for MCP development.
 
-*This section will be populated as more tools become available.*
+- [MCP Inspector](https://github.com/modelcontextprotocol/inspector) - Visual testing tool for MCP servers with UI mode
+  ```bash
+  # One-click start
+  npx @modelcontextprotocol/inspector
+  ```
