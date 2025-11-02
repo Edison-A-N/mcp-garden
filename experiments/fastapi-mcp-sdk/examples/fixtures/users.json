@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "full_name": "John Doe",
+    "phone": "+1-555-0123",
+    "role": "customer",
+    "is_active": true,
+    "created_at": "2024-01-15T10:30:00Z",
+    "updated_at": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": 2,
+    "username": "jane_smith",
+    "email": "jane.smith@example.com",
+    "full_name": "Jane Smith",
+    "phone": "+1-555-0124",
+    "role": "customer",
+    "is_active": true,
+    "created_at": "2024-01-16T14:20:00Z",
+    "updated_at": "2024-01-16T14:20:00Z"
+  },
+  {
+    "id": 3,
+    "username": "admin_user",
+    "email": "admin@example.com",
+    "full_name": "Admin User",
+    "phone": "+1-555-0125",
+    "role": "admin",
+    "is_active": true,
+    "created_at": "2024-01-10T09:00:00Z",
+    "updated_at": "2024-01-10T09:00:00Z"
+  },
+  {
+    "id": 4,
+    "username": "bob_wilson",
+    "email": "bob.wilson@example.com",
+    "full_name": "Bob Wilson",
+    "phone": "+1-555-0126",
+    "role": "customer",
+    "is_active": true,
+    "created_at": "2024-01-20T16:45:00Z",
+    "updated_at": "2024-01-20T16:45:00Z"
+  },
+  {
+    "id": 5,
+    "username": "alice_brown",
+    "email": "alice.brown@example.com",
+    "full_name": "Alice Brown",
+    "phone": "+1-555-0127",
+    "role": "customer",
+    "is_active": false,
+    "created_at": "2024-01-18T11:15:00Z",
+    "updated_at": "2024-01-25T13:30:00Z"
+  }
+]

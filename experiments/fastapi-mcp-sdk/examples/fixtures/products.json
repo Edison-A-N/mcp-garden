@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "description": "High-quality wireless headphones with noise cancellation and 30-hour battery life. Perfect for music lovers and professionals.",
+    "price": 199.99,
+    "category": "electronics",
+    "stock_quantity": 50,
+    "is_available": true,
+    "image_url": "https://example.com/images/headphones.jpg",
+    "tags": ["wireless", "bluetooth", "noise-cancellation", "audio"],
+    "specifications": {
+      "battery_life": "30 hours",
+      "connectivity": "Bluetooth 5.0",
+      "weight": "250g",
+      "color": "Black",
+      "warranty": "2 years"
+    },
+    "created_at": "2024-01-10T09:00:00Z",
+    "updated_at": "2024-01-10T09:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "Smart Fitness Watch",
+    "description": "Advanced fitness tracking watch with heart rate monitoring, GPS, and water resistance. Track your workouts and health metrics.",
+    "price": 299.99,
+    "category": "electronics",
+    "stock_quantity": 30,
+    "is_available": true,
+    "image_url": "https://example.com/images/smartwatch.jpg",
+    "tags": ["fitness", "smartwatch", "health", "gps"],
+    "specifications": {
+      "display": "1.4 inch AMOLED",
+      "battery_life": "7 days",
+      "water_resistance": "5ATM",
+      "sensors": ["Heart Rate", "GPS", "Accelerometer"],
+      "compatibility": "iOS, Android"
+    },
+    "created_at": "2024-01-12T10:30:00Z",
+    "updated_at": "2024-01-12T10:30:00Z"
+  },
+  {
+    "id": 3,
+    "name": "Cotton T-Shirt",
+    "description": "Comfortable 100% cotton t-shirt in various colors. Soft, breathable fabric perfect for everyday wear.",
+    "price": 24.99,
+    "category": "clothing",
+    "stock_quantity": 100,
+    "is_available": true,
+    "image_url": "https://example.com/images/tshirt.jpg",
+    "tags": ["cotton", "casual", "comfortable", "basic"],
+    "specifications": {
+      "material": "100% Cotton",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "colors": ["White", "Black", "Blue", "Red", "Green"],
+      "care_instructions": "Machine wash cold",
+      "fit": "Regular fit"
+    },
+    "created_at": "2024-01-14T14:20:00Z",
+    "updated_at": "2024-01-14T14:20:00Z"
+  },
+  {
+    "id": 4,
+    "name": "Programming Book: Python Mastery",
+    "description": "Comprehensive guide to Python programming covering advanced concepts, best practices, and real-world projects.",
+    "price": 49.99,
+    "category": "books",
+    "stock_quantity": 25,
+    "is_available": true,
+    "image_url": "https://example.com/images/python-book.jpg",
+    "tags": ["programming", "python", "education", "technical"],
+    "specifications": {
+      "pages": 450,
+      "language": "English",
+      "format": "Paperback",
+      "isbn": "978-1234567890",
+      "author": "Jane Developer",
+      "publisher": "Tech Books Inc"
+    },
+    "created_at": "2024-01-16T11:45:00Z",
+    "updated_at": "2024-01-16T11:45:00Z"
+  },
+  {
+    "id": 5,
+    "name": "Coffee Maker Deluxe",
+    "description": "Professional-grade coffee maker with programmable settings, thermal carafe, and built-in grinder. Perfect for coffee enthusiasts.",
+    "price": 159.99,
+    "category": "home",
+    "stock_quantity": 15,
+    "is_available": true,
+    "image_url": "https://example.com/images/coffee-maker.jpg",
+    "tags": ["coffee", "kitchen", "appliance", "programmable"],
+    "specifications": {
+      "capacity": "12 cups",
+      "features": ["Programmable", "Thermal Carafe", "Built-in Grinder"],
+      "power": "1200W",
+      "dimensions": "12x8x14 inches",
+      "warranty": "2 years"
+    },
+    "created_at": "2024-01-18T16:30:00Z",
+    "updated_at": "2024-01-18T16:30:00Z"
+  },
+  {
+    "id": 6,
+    "name": "Yoga Mat Premium",
+    "description": "Non-slip yoga mat with extra cushioning and carrying strap. Perfect for yoga, pilates, and other fitness activities.",
+    "price": 39.99,
+    "category": "sports",
+    "stock_quantity": 40,
+    "is_available": true,
+    "image_url": "https://example.com/images/yoga-mat.jpg",
+    "tags": ["yoga", "fitness", "exercise", "non-slip"],
+    "specifications": {
+      "thickness": "6mm",
+      "length": "72 inches",
+      "width": "24 inches",
+      "material": "TPE",
+      "weight": "2.5 lbs",
+      "features": ["Non-slip", "Eco-friendly", "Carrying Strap"]
+    },
+    "created_at": "2024-01-20T13:15:00Z",
+    "updated_at": "2024-01-20T13:15:00Z"
+  },
+  {
+    "id": 7,
+    "name": "Skincare Set",
+    "description": "Complete skincare routine set including cleanser, moisturizer, and serum. Natural ingredients for all skin types.",
+    "price": 89.99,
+    "category": "beauty",
+    "stock_quantity": 20,
+    "is_available": true,
+    "image_url": "https://example.com/images/skincare-set.jpg",
+    "tags": ["skincare", "beauty", "natural", "routine"],
+    "specifications": {
+      "items": ["Cleanser", "Moisturizer", "Serum"],
+      "skin_types": "All",
+      "ingredients": "Natural",
+      "size": "Travel size",
+      "cruelty_free": true
+    },
+    "created_at": "2024-01-22T09:30:00Z",
+    "updated_at": "2024-01-22T09:30:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Organic Green Tea",
+    "description": "Premium organic green tea leaves from high-altitude gardens. Rich in antioxidants and perfect for daily consumption.",
+    "price": 19.99,
+    "category": "food",
+    "stock_quantity": 60,
+    "is_available": true,
+    "image_url": "https://example.com/images/green-tea.jpg",
+    "tags": ["tea", "organic", "healthy", "antioxidants"],
+    "specifications": {
+      "weight": "100g",
+      "origin": "High-altitude gardens",
+      "caffeine_content": "Low",
+      "packaging": "Resealable bag",
+      "shelf_life": "2 years"
+    },
+    "created_at": "2024-01-24T12:00:00Z",
+    "updated_at": "2024-01-24T12:00:00Z"
+  },
+  {
+    "id": 9,
+    "name": "Gaming Mouse Pro",
+    "description": "High-precision gaming mouse with customizable RGB lighting, programmable buttons, and ultra-fast response time.",
+    "price": 79.99,
+    "category": "electronics",
+    "stock_quantity": 35,
+    "is_available": true,
+    "image_url": "https://example.com/images/gaming-mouse.jpg",
+    "tags": ["gaming", "mouse", "rgb", "programmable"],
+    "specifications": {
+      "dpi": "16000",
+      "polling_rate": "1000Hz",
+      "buttons": 8,
+      "connectivity": "USB",
+      "rgb_lighting": true,
+      "weight": "85g"
+    },
+    "created_at": "2024-01-26T15:45:00Z",
+    "updated_at": "2024-01-26T15:45:00Z"
+  },
+  {
+    "id": 10,
+    "name": "Denim Jeans Classic",
+    "description": "Classic fit denim jeans made from premium cotton denim. Comfortable, durable, and stylish for any occasion.",
+    "price": 69.99,
+    "category": "clothing",
+    "stock_quantity": 45,
+    "is_available": true,
+    "image_url": "https://example.com/images/jeans.jpg",
+    "tags": ["denim", "jeans", "classic", "casual"],
+    "specifications": {
+      "material": "98% Cotton, 2% Elastane",
+      "fit": "Classic",
+      "sizes": ["28", "30", "32", "34", "36", "38", "40"],
+      "colors": ["Blue", "Black", "Dark Blue"],
+      "care_instructions": "Machine wash cold, tumble dry low"
+    },
+    "created_at": "2024-01-28T10:20:00Z",
+    "updated_at": "2024-01-28T10:20:00Z"
+  }
+]
