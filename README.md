@@ -15,65 +15,20 @@
 
 **Model Context Protocol (MCP)** is an open standard for connecting AI assistants with data sources and tools. It enables secure access to external data sources, execution of operations, and integration with various services.
 
-### Project Structure
-
-```
-mcp-garden/
-├── experiments/       # Experimental MCP projects
-├── docs/             # Documentation & tutorials
-```
-
 ## 🧪 Experiments
 
-*Experimental projects are being developed. Check back soon for:*
+#### [FastAPI MCP SDK](experiments/fastapi-mcp-sdk/)
+A streamlined SDK for converting FastAPI applications to MCP servers using FastMCP's experimental OpenAPI parser.
 
-### 🔬 Research Areas
-- **MCP Server Experiments** - Exploring various server implementation approaches
-- **Client Integration Experiments** - Testing different language client implementations
-- **LLM Integration Experiments** - Trying different LLM integration methods
-- **Innovation Application Experiments** - Exploring new MCP application scenarios
-
-### 🎯 Experiment Features
-- **Rapid Prototyping** - Quickly validate idea feasibility
-- **Comparative Research** - Performance and user experience comparisons
-- **Open Source Sharing** - All experimental code and results are fully open source
-
-## 🛠️ Development
-
-### Requirements
-- **Python 3.8+**
-
-### Join Experiments
-
-```bash
-# Clone repository
-git clone https://github.com/your-username/mcp-garden.git
-cd mcp-garden
-
-# Explore experiments
-ls experiments/
-
-# Run experiment
-cd experiments/[project-name]
-# Follow project README
-```
-
-<!-- ## 🤝 Contributing
-
-We welcome all contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines. -->
-
-<!-- ### Contribute Experiments
-1. Fork repository
-2. Create experiment in `experiments/` directory
-3. Add detailed README and experiment documentation
-4. Record experimental results and comparison data
-5. Submit Pull Request -->
+**Key Features:**
+- Convert FastAPI endpoints to MCP tools automatically
+- Support both separate and integrated server modes
 
 ## 📖 Resources
 
 - [MCP Official Docs](https://modelcontextprotocol.io/)
 - [MCP Specification](https://spec.modelcontextprotocol.io/)
-- [Documentation](./docs/)
+- [Awesome MCP](./awesome-mcp/) - Curated list of MCP projects, tools, and resources
 
 ## 📄 License
 
