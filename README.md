@@ -17,6 +17,15 @@
 
 ## 🧪 Experiments
 
+#### [mcp2code](experiments/mcp2code/)
+A tool that automatically generates Python packages from `mcp.json` configuration files. Each MCP server corresponds to an independent Python package, and each tool corresponds to an async function.
+
+**Key Features:**
+- Generate independent Python packages for each MCP server
+- Lazy connections with global connection pool
+- Auto-generated type hints from JSON schemas
+- Support for stdio and HTTP/SSE transports
+
 #### [FastAPI MCP SDK](experiments/fastapi-mcp-sdk/)
 A streamlined SDK for converting FastAPI applications to MCP servers using FastMCP's experimental OpenAPI parser.
 
