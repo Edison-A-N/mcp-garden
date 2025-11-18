@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "shopping-cart-stdio": {
+      "command": "python",
+      "args": [
+        "-m",
+        "_run_stdio"
+      ],
+      "env": {},
+      "transport": "stdio"
+    },
+    "shopping-cart-streamable-http": {
+      "url": "http://127.0.0.1:8000/mcp",
+      "headers": {
+        "Authorization": "Bearer shopping-cart-api-token-2025"
+      },
+      "transport": "http"
+    }
+  }
+}
