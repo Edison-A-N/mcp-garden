@@ -13,10 +13,9 @@ except ImportError:
     SSEServerParameters = None
 
 try:
-    from mcp.client.http import http_client, HTTPServerParameters
+    from mcp.client.streamable_http import streamablehttp_client
 except ImportError:
-    http_client = None
-    HTTPServerParameters = None
+    streamablehttp_client = None
 
 from mcp2code.config import MCPServerConfig
 
@@ -94,16 +93,14 @@ async def _create_http_transport(
     """Create HTTP transport"""
     if not server_config.url:
         raise ValueError("URL required for HTTP transport")
-    if http_client is None or HTTPServerParameters is None:
+    if streamablehttp_client is None:
         raise ImportError("HTTP client not available. Install mcp with HTTP support.")
 
-    server_params = HTTPServerParameters(
+    transport = streamablehttp_client(
         url=server_config.url,
         headers=server_config.headers,
     )
-
-    transport = http_client(server_params)
-    read, write = await transport.__aenter__()
+    read, write, _ = await transport.__aenter__()
     return transport, read, write
 
 
