@@ -149,9 +149,7 @@ class MCP2CodeGenerator:
         # Generate runtime __init__.py
         init_file = runtime_dir / "__init__.py"
         with open(init_file, "w", encoding="utf-8") as f:
-            f.write('"""Runtime support for generated MCP client packages"""\n\n')
-            f.write("from runtime.connection_pool import ConnectionPool\n\n")
-            f.write('__all__ = ["ConnectionPool"]\n')
+            f.write('"""Runtime support for generated MCP client packages"""\n')
 
     def _generate_server_package(
         self, server_name: str, tools: List[Dict[str, Any]], output_dir: Path
@@ -188,7 +186,7 @@ class MCP2CodeGenerator:
             "",
             "import json",
             "from typing import TypedDict, Dict, Any, Optional, List",
-            "from runtime.connection_pool import ConnectionPool",
+            "from ..runtime.connection_pool import ConnectionPool",
             "",
         ]
 
@@ -330,42 +328,24 @@ class MCP2CodeGenerator:
         lines = [
             f'"""Auto-generated MCP client package for {server_name} server"""',
             "",
-            "from runtime.connection_pool import ConnectionPool",
-            "from .tools import (",
+            "from ..runtime.connection_pool import ConnectionPool",
+            "",
+            "# Register server configuration",
+            "# Note: Generated code requires mcp2code package for MCPServerConfig",
+            f"_config_dict = {config_dict}",
+            "",
+            "def _register_config():",
+            "    try:",
+            "        from mcp2code.config import MCPServerConfig",
+            "        pool = ConnectionPool.get_instance()",
+            f'        pool.register_config("{server_name}", MCPServerConfig(**_config_dict))',
+            "    except ImportError:",
+            "        import warnings",
+            '        warnings.warn("mcp2code package not found. Install it to use generated code.")',
+            "",
+            "# Auto-register on import",
+            "_register_config()",
         ]
-
-        # Add imports
-        for export in exports:
-            lines.append(f"    {export},")
-
-        lines.extend(
-            [
-                ")",
-                "",
-                "# Register server configuration",
-                "# Note: Generated code requires mcp2code package for MCPServerConfig",
-                f"_config_dict = {config_dict}",
-                "",
-                "def _register_config():",
-                "    try:",
-                "        from mcp2code.config import MCPServerConfig",
-                "        pool = ConnectionPool.get_instance()",
-                f'        pool.register_config("{server_name}", MCPServerConfig(**_config_dict))',
-                "    except ImportError:",
-                "        import warnings",
-                '        warnings.warn("mcp2code package not found. Install it to use generated code.")',
-                "",
-                "# Auto-register on import",
-                "_register_config()",
-                "",
-                "__all__ = [",
-            ]
-        )
-
-        for export in exports:
-            lines.append(f'    "{export}",')
-
-        lines.append("]")
 
         init_file = server_dir / "__init__.py"
         with open(init_file, "w", encoding="utf-8") as f:
@@ -393,47 +373,9 @@ class MCP2CodeGenerator:
 
     def _generate_root_init(self, output_dir: Path, all_exports: List[str]) -> None:
         """Generate root __init__.py"""
-        if not all_exports:
-            # No exports, create empty __init__.py
-            init_file = output_dir / "__init__.py"
-            with open(init_file, "w", encoding="utf-8") as f:
-                f.write('"""Auto-generated MCP client packages"""\n\n__all__ = []\n')
-            return
-
-        lines = [
-            '"""Auto-generated MCP client packages"""',
-            "",
-        ]
-
-        # Group exports by server
-        server_exports: Dict[str, List[str]] = {}
-        for export in all_exports:
-            parts = export.split("__", 1)
-            if len(parts) == 2:
-                server_name = parts[0]
-                if server_name not in server_exports:
-                    server_exports[server_name] = []
-                server_exports[server_name].append(export)
-
-        # Generate imports
-        for server_name, exports in server_exports.items():
-            lines.append(f"from {server_name} import (")
-            for export in exports:
-                lines.append(f"    {export},")
-            lines.append(")")
-            lines.append("")
-
-        lines.extend(
-            [
-                "__all__ = [",
-            ]
-        )
-
-        for export in all_exports:
-            lines.append(f'    "{export}",')
-
-        lines.append("]")
-
+        # Generate a minimal __init__.py
+        # Users can import directly from subpackages like:
+        # from _generated.shopping_cart_stdio import ...
         init_file = output_dir / "__init__.py"
         with open(init_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines))
+            f.write('"""Auto-generated MCP client packages"""\n')
