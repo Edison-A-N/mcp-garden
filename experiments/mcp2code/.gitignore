@@ -71,5 +71,5 @@ dev-docs/
 .venv
 .ruff_cache
 
-# coding agent
-IFLOW.md
+_generated
+
