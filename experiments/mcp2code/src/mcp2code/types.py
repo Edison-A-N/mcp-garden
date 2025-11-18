@@ -183,17 +183,31 @@ def generate_function_parameters(input_schema: Dict[str, Any]) -> tuple[str, str
     arg_docs = []
     args_dict_items = []
 
+    # Separate required and optional parameters to ensure correct Python syntax
+    # Required parameters must come before optional parameters
+    required_props = []
+    optional_props = []
+
     for prop_name, prop_schema in properties.items():
+        if prop_name in required:
+            required_props.append((prop_name, prop_schema))
+        else:
+            optional_props.append((prop_name, prop_schema))
+
+    # Process required parameters first
+    for prop_name, prop_schema in required_props:
         prop_type = generate_type_hint(prop_schema, is_output=False)
         prop_desc = prop_schema.get("description", f"Parameter for {prop_name}")
+        params.append(f"{prop_name}: {prop_type}")
+        arg_docs.append(f"        {prop_name}: {prop_desc}")
+        args_dict_items.append(f'        "{prop_name}": {prop_name}')
 
-        if prop_name in required:
-            params.append(f"{prop_name}: {prop_type}")
-            arg_docs.append(f"        {prop_name}: {prop_desc}")
-        else:
-            params.append(f"{prop_name}: Optional[{prop_type}] = None")
-            arg_docs.append(f"        {prop_name}: {prop_desc}")
-
+    # Then process optional parameters
+    for prop_name, prop_schema in optional_props:
+        prop_type = generate_type_hint(prop_schema, is_output=False)
+        prop_desc = prop_schema.get("description", f"Parameter for {prop_name}")
+        params.append(f"{prop_name}: Optional[{prop_type}] = None")
+        arg_docs.append(f"        {prop_name}: {prop_desc}")
         args_dict_items.append(f'        "{prop_name}": {prop_name}')
 
     param_str = ", ".join(params)
