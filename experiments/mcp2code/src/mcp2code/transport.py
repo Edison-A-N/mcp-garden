@@ -5,17 +5,8 @@ from typing import Dict, Any, Tuple
 from mcp import ClientSession
 
 from mcp.client.stdio import stdio_client, StdioServerParameters
-
-try:
-    from mcp.client.sse import sse_client, SSEServerParameters
-except ImportError:
-    sse_client = None
-    SSEServerParameters = None
-
-try:
-    from mcp.client.streamable_http import streamablehttp_client
-except ImportError:
-    streamablehttp_client = None
+from mcp.client.sse import sse_client
+from mcp.client.streamable_http import streamablehttp_client
 
 from mcp2code.config import MCPServerConfig
 
@@ -44,7 +35,7 @@ async def create_transport(
         return await _create_stdio_transport(server_config)
     elif transport_type == "sse":
         return await _create_sse_transport(server_config)
-    elif transport_type == "http":
+    elif transport_type == "http" or transport_type == "streamable-http":
         return await _create_http_transport(server_config)
     else:
         raise ValueError(f"Unsupported transport type: {transport_type}")
@@ -74,15 +65,8 @@ async def _create_sse_transport(
     """Create SSE transport"""
     if not server_config.url:
         raise ValueError("URL required for SSE transport")
-    if sse_client is None or SSEServerParameters is None:
-        raise ImportError("SSE client not available. Install mcp with SSE support.")
 
-    server_params = SSEServerParameters(
-        url=server_config.url,
-        headers=server_config.headers,
-    )
-
-    transport = sse_client(server_params)
+    transport = sse_client(url=server_config.url, headers=server_config.headers)
     read, write = await transport.__aenter__()
     return transport, read, write
 

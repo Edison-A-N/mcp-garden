@@ -18,7 +18,7 @@ class MCPServerConfig(BaseModel):
     url: Optional[str] = None
 
     # Transport type (defaults to stdio if command is provided, otherwise SSE)
-    transport: Optional[Literal["stdio", "sse", "http"]] = None
+    transport: Optional[Literal["stdio", "sse", "streamable-http", 'http']] = None
 
     # Additional headers for SSE/HTTP
     headers: Dict[str, str] = Field(default_factory=dict)
@@ -28,10 +28,10 @@ class MCPServerConfig(BaseModel):
         if self.transport:
             return self.transport
         if self.url:
-            return "sse"  # Default to SSE for URL-based connections
+            return "streamable-http"  # Default to streamable_http for URL-based connections
         if self.command:
             return "stdio"  # Default to stdio for command-based connections
-        raise ValueError("Must specify either command (for stdio) or url (for SSE/HTTP)")
+        raise ValueError("Must specify either command (for stdio) or url (for streamable_http)")
 
 
 class MCPConfig(BaseModel):
