@@ -41,7 +41,7 @@ Example configuration with GitHub MCP server:
 
 **Transport types:**
 - **stdio**: Use `command` and `args` to start the server
-- **http/sse**: Use `url` and optional `headers` for remote servers
+- **http/streamable-http**: Use `url` and optional `headers` for remote servers
 
 ## Usage
 

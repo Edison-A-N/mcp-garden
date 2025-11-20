@@ -14,13 +14,13 @@ class MCPServerConfig(BaseModel):
     args: list[str] = Field(default_factory=list)
     env: Dict[str, str] = Field(default_factory=dict)
 
-    # For SSE/HTTP transport
+    # For HTTP transport
     url: Optional[str] = None
 
-    # Transport type (defaults to stdio if command is provided, otherwise SSE)
-    transport: Optional[Literal["stdio", "sse", "streamable-http", "http"]] = None
+    # Transport type (defaults to stdio if command is provided, otherwise streamable-http)
+    transport: Optional[Literal["stdio", "streamable-http", "http"]] = None
 
-    # Additional headers for SSE/HTTP
+    # Additional headers for HTTP
     headers: Dict[str, str] = Field(default_factory=dict)
 
     def get_transport_type(self) -> str:

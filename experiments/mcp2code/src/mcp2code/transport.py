@@ -5,7 +5,6 @@ from typing import Dict, Any, Tuple
 from mcp import ClientSession
 
 from mcp.client.stdio import stdio_client, StdioServerParameters
-from mcp.client.sse import sse_client
 from mcp.client.streamable_http import streamablehttp_client
 
 from mcp2code.config import MCPServerConfig
@@ -33,8 +32,6 @@ async def create_transport(
 
     if transport_type == "stdio":
         return await _create_stdio_transport(server_config)
-    elif transport_type == "sse":
-        return await _create_sse_transport(server_config)
     elif transport_type == "http" or transport_type == "streamable-http":
         return await _create_http_transport(server_config)
     else:
@@ -55,18 +52,6 @@ async def _create_stdio_transport(
     )
 
     transport = stdio_client(server_params)
-    read, write = await transport.__aenter__()
-    return transport, read, write
-
-
-async def _create_sse_transport(
-    server_config: MCPServerConfig,
-) -> Tuple[Any, Any, Any]:
-    """Create SSE transport"""
-    if not server_config.url:
-        raise ValueError("URL required for SSE transport")
-
-    transport = sse_client(url=server_config.url, headers=server_config.headers)
     read, write = await transport.__aenter__()
     return transport, read, write
 
